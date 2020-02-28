@@ -16,14 +16,14 @@ abstract class Appliance {
         this.basePrice = AllConstants.BASE_PRICE;
         this.weight = AllConstants.WEIGHT;
         this.color = AllConstants.COLOR;
-        this.energyConsumption = AllConstants.ENERGY_CONSUMPTION;
+        this.energyConsumption = AllConstants.DEFAULT_ENERGY_CONSUMPTION;
     }
 
     public Appliance(float weigth, float basePrice){
         this.basePrice = basePrice;
         this.weight = weigth;
         this.color = AllConstants.COLOR;
-        this.energyConsumption = AllConstants.ENERGY_CONSUMPTION;
+        this.energyConsumption = AllConstants.DEFAULT_ENERGY_CONSUMPTION;
     }
 
     public Appliance(float weigth, float basePrice, String color, char energyConsumption){
@@ -42,20 +42,19 @@ abstract class Appliance {
         validateConsumption.put('C', 'C');
         validateConsumption.put('D', 'D');
         validateConsumption.put('E', 'E');
-        validateConsumption.put(AllConstants.ENERGY_CONSUMPTION, AllConstants.ENERGY_CONSUMPTION);
+        validateConsumption.put(AllConstants.DEFAULT_ENERGY_CONSUMPTION, AllConstants.DEFAULT_ENERGY_CONSUMPTION);
 
-        return validateConsumption.getOrDefault(energyConsumption, AllConstants.ENERGY_CONSUMPTION);
+        return validateConsumption.getOrDefault(energyConsumption, AllConstants.DEFAULT_ENERGY_CONSUMPTION);
     }
 
     private String checkColor(String color){
         Map<String, String> validateColor =  new HashMap<>();
 
         validateColor.put(AllConstants.COLOR, AllConstants.COLOR);
-        validateColor.put("Black", "Black");
-        validateColor.put("Red", "Red");
-        validateColor.put("Blue", "Blue");
-        validateColor.put("Gray", "Gray");
-        validateColor.put(AllConstants.COLOR, AllConstants.COLOR);
+        validateColor.put("black", "black");
+        validateColor.put("red", "red");
+        validateColor.put("blue", "blue");
+        validateColor.put("gray", "gray");
 
         return validateColor.getOrDefault(color, AllConstants.COLOR);
     }
