@@ -1,11 +1,11 @@
-package appliancesObjects;
+package appliancesobjects;
 
 import constants.AllConstants;
 
 import java.util.HashMap;
 import java.util.Map;
 
-abstract class Appliance {
+public class Appliance {
 
     protected float basePrice;
     protected float weight;
@@ -42,15 +42,15 @@ abstract class Appliance {
         validateConsumption.put('C', 'C');
         validateConsumption.put('D', 'D');
         validateConsumption.put('E', 'E');
-        validateConsumption.put(AllConstants.DEFAULT_ENERGY_CONSUMPTION, AllConstants.DEFAULT_ENERGY_CONSUMPTION);
 
         return validateConsumption.getOrDefault(energyConsumption, AllConstants.DEFAULT_ENERGY_CONSUMPTION);
     }
 
     private String checkColor(String color){
+
+        color = color.toLowerCase();
         Map<String, String> validateColor =  new HashMap<>();
 
-        validateColor.put(AllConstants.COLOR, AllConstants.COLOR);
         validateColor.put("black", "black");
         validateColor.put("red", "red");
         validateColor.put("blue", "blue");
@@ -60,38 +60,37 @@ abstract class Appliance {
     }
 
     public float finalPrice(){
+        return this.getBasePrice() + this.getSumPrices();
+    }
 
+    private float getSumPrices(){
+        float priceApplianceEnergyConsumption = AllConstants.applianceConsumtionPrice(this.getEnergyConsumption());
+        float priceApplianceWeight = AllConstants.applianceWeightPrice(this.getWeight());
+        return priceApplianceEnergyConsumption + priceApplianceWeight;
     }
 
     public float getBasePrice() {
         return basePrice;
     }
 
-    public void setBasePrice(float basePrice) {
-        this.basePrice = basePrice;
-    }
-
     public float getWeight() {
         return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public char getEnergyConsumption() {
         return energyConsumption;
     }
 
-    public void setEnergyConsumption(char energyConsumption) {
-        this.energyConsumption = energyConsumption;
+    @Override
+    public String toString() {
+        return (getClass().getSimpleName())
+                .concat("\nBase price: ").concat(String.valueOf(this.getBasePrice()))
+                .concat("\nWeight: ").concat(String.valueOf(this.getWeight()))
+                .concat("\nEnergy consumption: ").concat(Character.toString(this.getEnergyConsumption()))
+                .concat("\nColor: ").concat(this.getColor());
     }
 }

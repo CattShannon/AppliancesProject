@@ -1,20 +1,18 @@
-package appliancesObjects;
-
-import constants.AllConstants;
+package appliancesobjects;
 
 public class WashingMachine extends Appliance {
 
-    private final float DEFAULT_LOAD = 5;
+    private static final float DEFAULT_LOAD = 5;
     private float load;
 
     public WashingMachine (){
         super();
-        this.load = this.DEFAULT_LOAD;
+        this.load = DEFAULT_LOAD;
     }
 
     public WashingMachine(float weight, float basePrice){
         super(weight, basePrice);
-        this.load = this.DEFAULT_LOAD;
+        this.load = DEFAULT_LOAD;
     }
 
     public WashingMachine(float weight, float basePrice, float load, char energyConsumption, String color){
@@ -24,15 +22,21 @@ public class WashingMachine extends Appliance {
 
     @Override
     public float finalPrice(){
+        float subtotal = super.finalPrice();
+        return (this.isMoreWeightThan30Kg()) ? subtotal + 50 : subtotal;
+    }
 
-        return 0;
+    private boolean isMoreWeightThan30Kg (){
+        return this.getLoad() > 30;
     }
 
     public float getLoad() {
         return load;
     }
 
-    public void setLoad(float load) {
-        this.load = load;
+    @Override
+    public String toString() {
+        return super.toString()
+                .concat("\nLoad: ").concat(String.valueOf(this.getLoad()));
     }
 }

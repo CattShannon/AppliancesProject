@@ -1,0 +1,10 @@
+
+Dsquid:S1170"!Make this final field static too.(ÅìÖ÷úÿÿÿÿ8ï®ğˆ.
+€squid:S00116"\Rename this field "DEFAULT_TDT_TUNER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅìÖ÷úÿÿÿÿ8ï®ğˆ.
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÜÃß¶
+Jsquid:S1068	",Remove this unused "tdtTuner" private field.(Æ¨Ü§8— ¬ğˆ.
+Lsquid:S1068
+".Remove this unused "resolution" private field.(ñÇÊğ8— ¬ğˆ.
+]squid:UselessImportCheck"3Remove this unused import 'constants.AllConstants'.(¹—È[8© ¥ğˆ.
+Dsquid:S1170"!Make this final field static too.(Ç®ğçüÿÿÿÿ8ø´²ğˆ.
+squid:S00116"]Rename this field "DEFAULT_RESOLUTION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç®ğçüÿÿÿÿ8ø´²ğˆ.
